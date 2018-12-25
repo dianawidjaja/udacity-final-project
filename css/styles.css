@@ -295,7 +295,8 @@ nav h1 a {
 }
 
 #reviews-list li .review-date {
-  margin-left: 60%;
+  width: 150px;
+  float: right;
 
 }
 #reviews-list li p.review-rating {
