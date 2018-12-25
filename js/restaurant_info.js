@@ -21,13 +21,14 @@ initMap = () => {
         zoom: 16,
         scrollWheelZoom: false
       });
-      L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
-        mapboxToken: '<your MAPBOX API KEY HERE>',
+      L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token=pk.eyJ1IjoiZGlhbmF3aWRqYWphIiwiYSI6ImNqcTF5NHl5NzEybzM0M3FtdHRkcXRhbTcifQ.UmizAVhApnHcvBmVa_7HpA', {
+        mapboxToken: 'pk.eyJ1IjoiZGlhbmF3aWRqYWphIiwiYSI6ImNqcTF5NHl5NzEybzM0M3FtdHRkcXRhbTcifQ.UmizAVhApnHcvBmVa_7HpA',
         maxZoom: 18,
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
           '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
           'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        id: 'mapbox.streets'    
+        id: 'mapbox.streets',
+        trackResize: true    
       }).addTo(newMap);
       fillBreadcrumb();
       DBHelper.mapMarkerForRestaurant(self.restaurant, self.newMap);
@@ -149,14 +150,17 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
 createReviewHTML = (review) => {
   const li = document.createElement('li');
   const name = document.createElement('p');
+  name.setAttribute('class', 'review-name');
   name.innerHTML = review.name;
   li.appendChild(name);
 
-  const date = document.createElement('p');
+  const date = document.createElement('span');
+  date.setAttribute('class', 'review-date');
   date.innerHTML = review.date;
-  li.appendChild(date);
+  name.appendChild(date);
 
   const rating = document.createElement('p');
+  rating.setAttribute('class', 'review-rating');
   rating.innerHTML = `Rating: ${review.rating}`;
   li.appendChild(rating);
 
