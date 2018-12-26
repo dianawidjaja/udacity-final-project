@@ -166,7 +166,11 @@ createRestaurantHTML = (restaurant) => {
   li.append(image);
 
   const name = document.createElement('h1');
-  name.innerHTML = restaurant.name;
+  const nameLink = document.createElement('a');
+  nameLink.innerHTML = restaurant.name;
+  nameLink.href = DBHelper.urlForRestaurant(restaurant);
+  name.append(nameLink);
+  //name.innerHTML = restaurant.name;
   li.append(name);
 
   const neighborhood = document.createElement('p');
