@@ -60,7 +60,3 @@ The following features are implemented to meet project requirements.
 * Adds assets to cache to enable app to load offline after the first use
 
 
-### Accessibility
-
-### Offline Availability
-
