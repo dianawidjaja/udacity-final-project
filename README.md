@@ -1,33 +1,66 @@
-# Mobile Web Specialist Certification Course
----
-#### _Three Stage Course Material Project - Restaurant Reviews_
+# Restaurant Review App Project
+This project is part of Udacity's Front-End Web Developer Nanodegree program. The goal is to make a static webpage into a responsive and accessible web app that supports offline availability.
 
-## Project Overview: Stage 1
+## Installation
 
-For the **Restaurant Reviews** projects, you will incrementally convert a static webpage to a mobile-ready web application. In **Stage One**, you will take a static design that lacks accessibility and convert the design to be responsive on different sized displays and accessible for screen reader use. You will also add a service worker to begin the process of creating a seamless offline experience for your users.
+Clone the GitHub repository.
 
-### Specification
+```
+git clone https://github.com/dianawidjaja/udacity-final-project.git
+```
+The project runs on a simple HTTP server in [Python](https://www.python.org/). If you have Python 2.x, start the server using:
 
-You have been provided the code for a restaurant reviews website. The code has a lot of issues. It’s barely usable on a desktop browser, much less a mobile device. It also doesn’t include any standard accessibility features, and it doesn’t work offline at all. Your job is to update the code to resolve these issues while still maintaining the included functionality.
+```
+python -m SimpleHTTPServer 8000
+```
+ For Python 3.x, run:
+ 
+ ```
+ python3 -m http.server 8000
+ ```
 
-### Project Rubric
+View the restaurant review app in a browser at `http://localhost:8000`.
 
-Your project will be evaluated by a Udacity code reviewer according to the [Restaurant Reviews project rubric](https://review.udacity.com/#!/rubrics/1090/view). Please review for detailed project requirements. The rubric should be a resource you refer to periodically to make sure your project meets specifications.
+## Project Features
 
-### What do I do from here?
+The following features are implemented by [starter code](https://github.com/udacity/mws-restaurant-stage-1).
 
-1. In this folder, start up a simple HTTP server to serve up the site files on your local computer. Python has some simple tools to do this, and you don't even need to know Python. For most people, it's already installed on your computer.
+`index.html`
 
-    * In a terminal, check the version of Python you have: `python -V`. If you have Python 2.x, spin up the server with `python -m SimpleHTTPServer 8000` (or some other port, if port 8000 is already in use.) For Python 3.x, you can use `python3 -m http.server 8000`. If you don't have Python installed, navigate to Python's [website](https://www.python.org/) to download and install the software.
-   * Note -  For Windows systems, Python 3.x is installed as `python` by default. To start a Python 3.x server, you can simply enter `python -m http.server 8000`.
-2. With your server running, visit the site: `http://localhost:8000`, and look around for a bit to see what the current experience looks like.
-3. Explore the provided code, and start making a plan to implement the required features in three areas: responsive design, accessibility and offline use.
-4. Write code to implement the updates to get this site on its way to being a mobile-ready website.
+* Loads a map with location markers using [MapBox API](https://www.mapbox.com/) and [Leaflet](https://leafletjs.com/) 
+* Filters restaurants based on neighborhood and cuisine
+* Displays restaurant information with photo, name, location, and a View More button
 
-## Leaflet.js and Mapbox:
+`restaurant.html`
+* Loads a map with a location marker for the restaurant
+* Displays restaurant information, such as address and hours
+* Lists reviews with reviewer's names, ratings, and comments
 
-This repository uses [leafletjs](https://leafletjs.com/) with [Mapbox](https://www.mapbox.com/). You need to replace `<your MAPBOX API KEY HERE>` with a token from [Mapbox](https://www.mapbox.com/). Mapbox is free to use, and does not require any payment information.
+## Additional Features
 
-### Note about ES6
+The following features are implemented to meet project requirements.
 
-Most of the code in this project has been written to the ES6 JavaScript specification for compatibility with modern web browsers and future-proofing JavaScript code. As much as possible, try to maintain use of ES6 in any additional JavaScript you write.
+### Responsive UI
+
+* Makes UI compatible with mobile and desktop devices 
+* Adapts filters to various screen sizes
+* Implements the flex container for `restaurant-list`
+
+### Accessibility
+
+* Adds a skip link to navigate directly to main content
+* Includes alternative text for images
+* Manages focus using `tabindex` to improve navigation
+* Implements ARIA attributes for filters
+* Implements ARIA role for the `main` landmark
+
+### Offline Availability
+
+* Registers a service worker
+* Adds assets to cache to enable app to load offline after the first use
+
+
+### Accessibility
+
+### Offline Availability
+
